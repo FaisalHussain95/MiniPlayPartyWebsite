@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useSeoMeta({
+usePageSeo({
   title: 'About MiniPlayParty',
   description: 'Learn more about MiniPlayParty - the ultimate multi mini-game app for playing with friends'
 })

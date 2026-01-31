@@ -19,11 +19,20 @@ const links = [
       <UContainer>
         <div class="flex h-16 items-center justify-between">
           <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl">
-            <img 
-              :src="colorMode.value === 'dark' ? '/logo-light.svg' : '/logo.svg'" 
-              alt="MiniPlayParty Logo" 
-              class="w-8 h-8"
-            >
+            <ClientOnly>
+              <img
+                :src="colorMode.value === 'dark' ? '/logo-light.svg' : '/logo.svg'"
+                alt="MiniPlayParty Logo"
+                class="w-8 h-8"
+              >
+              <template #fallback>
+                <img
+                  src="/logo.svg"
+                  alt="MiniPlayParty Logo"
+                  class="w-8 h-8"
+                >
+              </template>
+            </ClientOnly>
             MiniPlayParty
           </NuxtLink>
 
@@ -38,6 +47,8 @@ const links = [
             </NuxtLink>
             <UButton
               :icon="colorMode.preference === 'dark' ? 'i-heroicons-moon' : 'i-heroicons-sun'"
+              :aria-label="colorMode.preference === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+              :title="colorMode.preference === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
               color="neutral"
               variant="ghost"
               size="sm"

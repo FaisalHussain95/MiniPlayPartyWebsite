@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useSeoMeta({
+usePageSeo({
   title: 'Contact MiniPlayParty',
   description: 'Get in touch with the MiniPlayParty team for feedback, support, or partnership inquiries.'
 })
